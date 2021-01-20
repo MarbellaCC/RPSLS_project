@@ -9,30 +9,28 @@ namespace RPSLS
     abstract class Player
     {
         //Member Variable
+        public Gesture choice;
         public List<Gesture> gestures;
-
-
+        public string playerTwo;
         //Construcor
         public Player()
         {
             gestures = new List<Gesture>();
-            Gesture rock = new Gesture("rock");
-            Gesture paper = new Gesture("paper");
-            Gesture scissors = new Gesture("scissors");
-            Gesture lizard = new Gesture("lizard");
-            Gesture spock = new Gesture("spock");
+
+            Rock rock = new Rock("rock");
+            Paper paper = new Paper("paper");
+            Scissor scissors = new Scissor("scissors");
+            Lizard lizard = new Lizard("lizard");
+            Spock spock = new Spock("spock");
+
             gestures.Add(rock);
             gestures.Add(paper);
             gestures.Add(scissors);
             gestures.Add(lizard);
             gestures.Add(spock);
+
         }
         //Member Methods
-        public abstract void ShootGesture(Player player);
-
-        
-       
-
-
+        public abstract void ShootGesture();
     }
 }

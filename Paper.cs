@@ -13,7 +13,7 @@ namespace RPSLS
         //Construcor
         public Paper(string name)
         {
-            this.name = name;
+            name = "paper";
         }
         //Member Methods
     }

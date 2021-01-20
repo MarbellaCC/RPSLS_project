@@ -10,6 +10,7 @@ namespace RPSLS
     {
         //Member Variable
         Random rand;
+        
         //Construcor
         public Computer()
         {
@@ -17,9 +18,15 @@ namespace RPSLS
         }
         
         //Member Methods
-        public override void ShootGesture(Player player)
+        public override void ShootGesture()
         {
-            return rand.Next(Player.gestures.name);
+            int randomNumber = rand.Next(0, 5);
+            choice = gestures[randomNumber];
+            Console.WriteLine("the computer chose " + choice);
+
         }
+
+        
     }
+
 }

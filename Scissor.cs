@@ -11,9 +11,9 @@ namespace RPSLS
         //Member Variable
 
         //Construcor
-        public Scissor()
+        public Scissor(string name)
         {
-
+            name = "scissors";
         }
         //Member Methods
     }

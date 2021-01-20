@@ -6,15 +6,21 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class Lizard : Gesture
+    public class Lizard : Gesture
     {
         //Member Variable
 
         //Construcor
-        public Lizard()
+        public Lizard(string name)
         {
-            this.name = name;
+            name = "lizard";
         }
         //Member Methods
+      
+        
+        
+
+
+
     }
 }

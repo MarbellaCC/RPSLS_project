@@ -13,8 +13,9 @@ namespace RPSLS
         //Construcor
         public Rock(string name)
         {
-            this.name = name;
+            name = "rock";
         }
         //Member Methods
+        
     }
 }
