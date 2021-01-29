@@ -11,9 +11,8 @@ namespace RPSLS
         //Member Variable
         public int playerOneScore;
         public int playerTwoScore;
-        public Human playerOne = new Human();
-        public Computer playerTwo = new Computer();
-        public List<Gesture> gestures;
+        public Player playerOne;
+        public Player playerTwo;
 
         //Construcor
         public Game()
@@ -30,11 +29,25 @@ namespace RPSLS
             Console.WriteLine("You will be playing three rounds best of 3 wins!");
         }
         
-        public string OneOrTwoPlayer()
+        public void OneOrTwoPlayer()
         {
             Console.WriteLine("For single player press one, for multiplayer press two");
             string numberOfPlayers = Console.ReadLine();
-            return numberOfPlayers;
+            switch (numberOfPlayers)
+            {
+                case "1":
+                    playerOne = new Human();
+                    playerTwo = new Computer();
+                    break;
+                case "2":
+                    playerOne = new Human();
+                    playerTwo = new Human();
+                    break;
+                default:
+                    Console.WriteLine("Input invalid try again");
+                    OneOrTwoPlayer();
+                    break;
+            }
         }
 
         public void Compare()
@@ -59,167 +72,172 @@ namespace RPSLS
         }
         public void CompareRockToOtherGestures()
         {
-            if (playerOne.choice.name == "rock" && playerOne.choice.name == "rock")
+            if(playerOne.choice.name == "rock")
             {
-                Console.WriteLine("Player one chose rock and player two also chose rock. Noone receives a point");
-            }
-            else if (playerOne.choice.name == "rock" && playerTwo.choice.name == "paper")
-            {
-                Console.WriteLine("Player one chose rock and player two chose paper. Player two gets a point");
-                playerTwoScore++;
-            }
-            else if (playerOne.choice.name == "rock" && playerTwo.choice.name == "scissors")
-            {
-                Console.WriteLine("Player one chose rock and player two chose scissors. Player one gets a point");
-                playerOneScore++;
-            }
-            else if (playerOne.choice.name == "rock" && playerTwo.choice.name == "lizard")
-            {
-                Console.WriteLine("Player one chose rock and player two chose lizard. Player one gets a point");
-                playerOneScore++;
-            }
-            else if (playerOne.choice.name == "rock" && playerTwo.choice.name == "spock")
-            {
-                Console.WriteLine("Player one chose rock and player two chose spock. Player two gets a point");
-                playerTwoScore++;
+                if (playerTwo.choice.name == "rock")
+                {
+                    Console.WriteLine("Player one chose rock and player two also chose rock. Noone receives a point");
+                }
+                else if(playerTwo.choice.name == "paper")
+                {
+                    Console.WriteLine("Player one chose rock and player two chose paper. Player two gets a point");
+                    playerTwoScore++;
+                }
+                else if(playerTwo.choice.name == "scissors")
+                {
+                    Console.WriteLine("Player one chose rock and player two chose scissors. Player one gets a point");
+                    playerOneScore++;
+                }
+                else if(playerTwo.choice.name == "lizard")
+                {
+                    Console.WriteLine("Player one chose rock and player two chose lizard. Player one gets a point");
+                    playerOneScore++;
+                }
+                else
+                {
+                    Console.WriteLine("Player one chose rock and player two chose spock. Player two gets a point");
+                    playerTwoScore++;
+                }
             }
         }
         public void ComparePaperToOtherGestures()
         {
-            if (playerOne.choice.name == "paper" && playerTwo.choice.name == "rock")
+            if(playerOne.choice.name == "paper")
             {
-                Console.WriteLine("Player one chose paper and player two chose rock. Player one gets a point");
-                playerOneScore++;
-            }
-            else if (playerOne.choice.name == "paper" && playerTwo.choice.name == "paper")
-            {
-                Console.WriteLine("Player one chose paper and player two chose paper. Noone gets a point");
-            }
-            else if (playerOne.choice.name == "paper" && playerTwo.choice.name == "scissors")
-            {
-                Console.WriteLine("Player one chose paper and player two chose scissors. Player two gets a point");
-                playerTwoScore++;
-            }
-            else if (playerOne.choice.name == "paper" && playerTwo.choice.name == "lizard")
-            {
-                Console.WriteLine("Player one chose paper and player two chose lizard. Player two gets a point");
-                playerTwoScore++;
-            }
-            else if (playerOne.choice.name == "paper" && playerTwo.choice.name == "spock")
-            {
-                Console.WriteLine("Player one chose paper and player two chose spock. Player one gets a point");
-                playerOneScore++;
+                if(playerTwo.choice.name == "rock")
+                {
+                    Console.WriteLine("Player one chose paper and player two chose rock. Player one gets a point");
+                    playerOneScore++;
+                }
+                else if(playerTwo.choice.name == "paper")
+                {
+                    Console.WriteLine("Player one chose paper and player two chose paper. Noone gets a point");
+                }
+                else if(playerTwo.choice.name == "scissors")
+                {
+                    Console.WriteLine("Player one chose paper and player two chose scissors. Player two gets a point");
+                    playerTwoScore++;
+                }
+                else if(playerTwo.choice.name == "lizard")
+                {
+                    Console.WriteLine("Player one chose paper and player two chose lizard. Player two gets a point");
+                    playerTwoScore++;
+                }
+                else
+                {
+                    Console.WriteLine("Player one chose paper and player two chose spock. Player one gets a point");
+                    playerOneScore++;
+                }
             }
         }
 
         public void CompareScissorsToOtherGestures()
         {
-            if (playerOne.choice.name == "scissors" && playerTwo.choice.name == "rock")
+            if(playerOne.choice.name == "scissors")
             {
-                Console.WriteLine("Player one chose scissors and player two chose rock. Player two gets a point");
-                playerTwoScore++;
-            }
-            else if (playerOne.choice.name == "scissors" && playerTwo.choice.name == "paper")
-            {
-                Console.WriteLine("Player one chose scissors and player two chose paper. Player one gets a point");
-                playerOneScore++;
-            }
-            else if (playerOne.choice.name == "scissors" && playerTwo.choice.name == "scissors")
-            {
-                Console.WriteLine("Player one chose scissors and player two chose scissors. Noone gets a point");
-            }
-            else if (playerOne.choice.name == "scissors" && playerTwo.choice.name == "lizard")
-            {
-                Console.WriteLine("Player one chose scissors and player two chose lizard. Player one gets a point");
-                playerOneScore++;
-            }
-            else if (playerOne.choice.name == "scissors" && playerTwo.choice.name == "spock")
-            {
-                Console.WriteLine("Player one chose scissors and player two chose spock. Player two gets a point");
-                playerTwoScore++;
+                if(playerTwo.choice.name == "rock")
+                {
+                    Console.WriteLine("Player one chose scissors and player two chose rock. Player two gets a point");
+                    playerTwoScore++;
+                }
+                else if(playerTwo.choice.name == "paper")
+                {
+                    Console.WriteLine("Player one chose scissors and player two chose paper. Player one gets a point");
+                    playerOneScore++;
+                }
+                else if(playerTwo.choice.name == "scissors")
+                {
+                    Console.WriteLine("Player one chose scissors and player two chose scissors. Noone gets a point");
+                }
+                else if(playerTwo.choice.name == "lizard")
+                {
+                    Console.WriteLine("Player one chose scissors and player two chose lizard. Player one gets a point");
+                    playerOneScore++;
+                }
+                else
+                {
+                    Console.WriteLine("Player one chose scissors and player two chose spock. Player two gets a point");
+                    playerTwoScore++;
+                }
             }
         }
 
         public void CompareLizardToOtherGestures()
         {
-            if (playerOne.choice.name == "lizard" && playerTwo.choice.name == "rock")
+            if (playerOne.choice.name == "lizard")
             {
-                Console.WriteLine("Player one chose lizard and player two chose rock. Player two gets a point");
-                playerTwoScore++;
-            }
-            else if (playerOne.choice.name == "lizard" && playerTwo.choice.name == "paper")
-            {
-                Console.WriteLine("Player one chose lizard and player two chose paper. Player one gets a point");
-                playerOneScore++;
-            }
-            else if (playerOne.choice.name == "lizard" && playerTwo.choice.name == "scissors")
-            {
-                Console.WriteLine("Player one chose lizard and player two chose scissors. Player two gets a point");
-                playerTwoScore++;
-            }
-            else if (playerOne.choice.name == "lizard" && playerTwo.choice.name == "lizard")
-            {
-                Console.WriteLine("Player one chose lizard and player two chose lizard. Noone gets a point");
-            }
-            else if (playerOne.choice.name == "lizard" && playerTwo.choice.name == "spock")
-            {
-                Console.WriteLine("Player one chose lizard and player two chose spock. Player one gets a point");
-                playerOneScore++;
+                if (playerTwo.choice.name == "rock")
+                {
+                    Console.WriteLine("Player one chose lizard and player two chose rock. Player two gets a point");
+                    playerTwoScore++;
+                }
+                else if(playerTwo.choice.name == "paper")
+                {
+                    Console.WriteLine("Player one chose lizard and player two chose paper. Player one gets a point");
+                    playerOneScore++;
+                }
+                else if(playerTwo.choice.name == "scissors")
+                {
+                    Console.WriteLine("Player one chose lizard and player two chose scissors. Player two gets a point");
+                    playerTwoScore++;
+                }
+                else if(playerTwo.choice.name == "lizard")
+                {
+                    Console.WriteLine("Player one chose lizard and player two chose lizard. Noone gets a point");
+                }
+                else if(playerTwo.choice.name == "spock")
+                {
+                    Console.WriteLine("Player one chose lizard and player two chose spock. Player one gets a point");
+                    playerOneScore++;
+                }
             }
         }
 
         public void CompareSpockToOtherGestures()
         {
-            if (playerOne.choice.name == "spock" && playerTwo.choice.name == "rock")
+            if (playerOne.choice.name == "spock")
             {
-                Console.WriteLine("Player one chose spock and player two chose rock. Player one gets a point");
-                playerOneScore++;
-            }
-            else if (playerOne.choice.name == "spock" && playerTwo.choice.name == "paper")
-            {
-                Console.WriteLine("Player one chose spock and player two chose paper. Player two gets a point");
-                playerTwoScore++;
-            }
-            else if (playerOne.choice.name == "spock" && playerTwo.choice.name == "scissors")
-            {
-                Console.WriteLine("Player one chose spock and player two chose scissors. Player one gets a point");
-                playerOneScore++;
-            }
-            else if (playerOne.choice.name == "spock" && playerTwo.choice.name == "lizard")
-            {
-                Console.WriteLine("Player one chose spock and player two chose lizard. Player two gets a point");
-                playerTwoScore++;
-            }
-            else if (playerOne.choice.name == "spock" && playerTwo.choice.name == "spock")
-            {
-                Console.WriteLine("Player one chose spock and player two chose spock. Noone gets a point");
+                if (playerTwo.choice.name == "rock")
+                {
+                    Console.WriteLine("Player one chose spock and player two chose rock. Player one gets a point");
+                    playerOneScore++;
+                }
+                else if(playerTwo.choice.name == "paper")
+                {
+                    Console.WriteLine("Player one chose spock and player two chose paper. Player two gets a point");
+                    playerTwoScore++;
+                }
+                else if(playerTwo.choice.name == "scissors")
+                {
+                    Console.WriteLine("Player one chose spock and player two chose scissors. Player one gets a point");
+                    playerOneScore++;
+                }
+                else if(playerTwo.choice.name == "lizard")
+                {
+                    Console.WriteLine("Player one chose spock and player two chose lizard. Player two gets a point");
+                    playerTwoScore++;
+                }
+                else
+                {
+                    Console.WriteLine("Player one chose spock and player two chose spock. Noone gets a point");
+                }
             }
         }
 
         public void PlayGame()
         {
             DisplayRules();
-            string playerAmount = OneOrTwoPlayer();
+            OneOrTwoPlayer();
             
-            while (playerOneScore < 2 || playerTwoScore < 2)
+            while (playerOneScore < 3 && playerTwoScore < 3)
             {
-                if (playerAmount == "2")
-                {
-                    playerOne.ShootGesture();
-                    playerTwo.ShootGesture();
-                    Compare();
-                }
-                else if (playerAmount == "1")
-                {
-                    playerOne.ShootGesture();
-                    playerTwo.ShootGesture();
-                    Compare();
-                }
-                
+                playerOne.ShootGesture();
+                playerTwo.ShootGesture();
+                Compare(); 
             }
+            
             DisplayWinner();
             Console.ReadLine();
-
         }
     }
 }

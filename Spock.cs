@@ -11,7 +11,7 @@ namespace RPSLS
         //Member Variable
 
         //Construcor
-        public Spock(string name)
+        public Spock()
         {
             name = "spock";
         }

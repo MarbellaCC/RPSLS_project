@@ -20,9 +20,9 @@ namespace RPSLS
         //Member Methods
         public override void ShootGesture()
         {
-            int randomNumber = rand.Next(0, 5);
+            int randomNumber = rand.Next(0, gestures.Count);
             choice = gestures[randomNumber];
-            Console.WriteLine("the computer chose " + choice);
+            Console.WriteLine("the computer chose " + choice.name);
 
         }
 
